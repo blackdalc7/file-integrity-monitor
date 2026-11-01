@@ -55,7 +55,10 @@ def test_scan_tree_requires_directory(tmp_path):
 def test_scan_tree_records_symlink_target(tmp_path):
     (tmp_path / "real.txt").write_text("data")
     link = tmp_path / "link.txt"
-    link.symlink_to("real.txt")
+    try:
+        link.symlink_to("real.txt")
+    except OSError:
+        pytest.skip("creating symlinks needs extra privileges on this OS")
     files = scan_tree(tmp_path)
     assert files["link.txt"]["hash"].startswith("symlink:")
 

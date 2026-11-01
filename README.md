@@ -1,5 +1,7 @@
 # file-integrity-monitor (fim)
 
+[![CI](https://github.com/blackdalc7/file-integrity-monitor/actions/workflows/ci.yml/badge.svg)](https://github.com/blackdalc7/file-integrity-monitor/actions/workflows/ci.yml)
+
 A tiny Tripwire/AIDE-style file integrity monitor. It takes a **baseline** of a
 directory tree — the content hash and size of every file — and later **verifies**
 the tree against that baseline, telling you exactly which files were **added**,
